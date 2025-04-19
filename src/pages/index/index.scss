@@ -1,0 +1,35 @@
+.index {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #2C1A47, #4B3B6E) fixed;
+    background-size: cover;
+  }
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.test-button {
+  width: 100%;
+  height: 100px;
+  color: #D4AF37;
+  font-size: 28px;
+  border-radius: 8px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #3A2A5E, #2C1A47);
+  border: 1px solid #635270;
+}
+
+.test-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}

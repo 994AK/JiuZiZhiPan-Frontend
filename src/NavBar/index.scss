@@ -1,0 +1,35 @@
+.custom-navbar {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: transparent;
+  
+  .back-button {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(44, 26, 71, 0.7); // 深邃紫色带透明度
+    
+    &:active {
+      background-color: rgba(44, 26, 71, 0.9);
+      transform: scale(0.95);
+    }
+    
+    .back-arrow {
+      width: 30%;
+      height: 30%;
+      border-left: 3px solid #E0E0E8; // 更粗的边框
+      border-bottom: 3px solid #E0E0E8;
+      transform: rotate(45deg);
+      margin-left: 4px; // 微调箭头位置
+      margin-top: -2px; // 微调箭头位置
+    }
+  }
+}
+

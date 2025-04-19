@@ -1,0 +1,31 @@
+/* 九紫智盘 - Global Styles */
+
+/* Color Variables */
+$deep-purple: #2C1A47;
+$deep-black: #121212;
+$dark-gold: #C0A080;
+
+$light-purple: #8A6DB3;
+$gray-purple: #635270;
+$bronze: #8E6F47;
+$silver-gray: #E0E0E8;
+
+$info-blue: #3A89C9;
+$success-green: #4CAF78;
+$warning-yellow: #F9A825;
+$error-red: #D32F2F;
+
+/* Global Reset */
+page {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  font-size: 28px; /* Base size, equals to 14px in design */
+  line-height: 1.5;
+}
+
+view, text, button, input, textarea, image, scroll-view {
+  box-sizing: border-box;
+}
+
