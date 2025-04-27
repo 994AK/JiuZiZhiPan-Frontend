@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import Taro from "@tarojs/taro";
 import { View } from "@tarojs/components";
+import { useSafeArea } from "@/contexts/SafeAreaContext";
 
 export default function NavBar() {
   const [navBarHeight, setNavBarHeight] = useState(0);
@@ -11,6 +12,9 @@ export default function NavBar() {
   const [showBackButton, setShowBackButton] = useState(false);
   const [menuButtonInfo, setMenuButtonInfo] =
     useState<Taro.getMenuButtonBoundingClientRect.Rect | null>(null);
+
+  // 使用安全区域上下文
+  const safeArea = useSafeArea();
 
   // 检测页面栈变化，判断是否显示后退按钮
   const checkBackButtonVisibility = () => {
@@ -49,11 +53,15 @@ export default function NavBar() {
     Taro.navigateBack();
   };
 
+  // 计算额外的安全区域高度
+  const extraSafeAreaHeight = safeArea.hasNotch ? 25 : 15;
+  const totalNavBarHeight = statusBarHeight + navBarHeight + extraSafeAreaHeight;
+
   return (
     <View
-      className="custom-navbar"
+      className={`custom-navbar ${safeArea.hasNotch ? 'has-notch' : ''}`}
       style={{
-        height: `${statusBarHeight + navBarHeight}px`,
+        height: `${totalNavBarHeight}px`,
       }}
     >
         {showBackButton && menuButtonInfo && (
@@ -61,7 +69,7 @@ export default function NavBar() {
             className="back-button"
             onClick={handleBackClick}
             style={{
-              top: `${menuButtonInfo.top}px`,
+              top: `${menuButtonInfo.top + extraSafeAreaHeight}px`,
               height: `${menuButtonInfo.height}px`,
               width: `${menuButtonInfo.height}px`,
             }}

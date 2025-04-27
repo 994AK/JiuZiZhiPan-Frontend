@@ -1,5 +1,5 @@
 {
-  "projectname": "%E4%B9%9D%E7%B4%AB%E6%99%BA%E7%9B%98",
+  "projectname": "MicroApp",
   "setting": {
     "compileHotReLoad": true,
     "urlCheck": false,
@@ -19,5 +19,6 @@
     "bigPackageSizeSupport": true
   },
   "libVersion": "3.8.0",
-  "condition": {}
+  "condition": {},
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
 }

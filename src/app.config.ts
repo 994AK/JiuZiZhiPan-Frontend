@@ -4,6 +4,7 @@ export default defineAppConfig({
     'pages/history/index',
     'pages/profile/index',
     'pages/bazi/index',
+    'pages/bazi/chart/index',
     'pages/mbti/index'
   ],
   window: {
@@ -18,15 +19,19 @@ export default defineAppConfig({
     list: [
       {
         pagePath: 'pages/index/index',
-        text: '主页'
+        text: '首页'
       },
       {
         pagePath: 'pages/history/index',
-        text: '历史评测',
+        text: '历史',
+      },
+      {
+        pagePath: 'pages/bazi/index',
+        text: '测试',
       },
       {
         pagePath: 'pages/profile/index',
-        text: '我的' 
+        text: '我的'
       }
     ]
   }

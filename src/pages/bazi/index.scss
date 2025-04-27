@@ -1,14 +1,283 @@
 .bazi-page {
     width: 100%;
     height: 100vh;
-    background-color: #1a0f29;
+    background: linear-gradient(135deg, #0A1929, #132F4C) fixed; /* 深空蓝黑/深邃宇宙蓝渐变 */
     background-size: cover;
-    color: #d4af37;
+    color: #E6C35C; /* 金色 */
+    padding-top: var(--safe-area-inset-top);
+    padding-bottom: var(--safe-area-inset-bottom);
+    box-sizing: border-box;
+    position: relative;
+    overflow-y: auto;
+
+    /* 添加星空背景效果 */
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            radial-gradient(1px 1px at 25% 15%, rgba(255, 255, 255, 0.6), transparent),
+            radial-gradient(1px 1px at 50% 40%, rgba(255, 255, 255, 0.5), transparent),
+            radial-gradient(1.5px 1.5px at 75% 25%, rgba(255, 255, 255, 0.4), transparent),
+            radial-gradient(2px 2px at 20% 60%, rgba(255, 255, 255, 0.3), transparent),
+            radial-gradient(2.5px 2.5px at 40% 80%, rgba(255, 255, 255, 0.4), transparent),
+            radial-gradient(2px 2px at 90% 10%, rgba(255, 255, 255, 0.5), transparent),
+            radial-gradient(1px 1px at 15% 90%, rgba(255, 255, 255, 0.6), transparent),
+            radial-gradient(1.5px 1.5px at 60% 70%, rgba(255, 255, 255, 0.4), transparent),
+            radial-gradient(1px 1px at 70% 50%, rgba(255, 255, 255, 0.3), transparent);
+        background-repeat: repeat;
+        background-size: 200px 200px;
+        opacity: 0.15;
+        z-index: 0;
+        pointer-events: none;
+    }
 }
 
 .bazi-content {
     width: 100%;
     height: 100%;
-
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    /* 添加一个渐变边框的容器 */
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100px; /* 调整位置以适应导航栏 */
+        left: 5%;
+        width: 90%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 163, 180, 0.3), transparent); /* 青蓝色透明渐变线 */
+    }
+}
+
+/* 页面标题样式 */
+.page-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+
+    .page-title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #E6C35C; /* 金色 */
+        margin-bottom: 10px;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        display: block;
+    }
+
+    .page-subtitle {
+        font-size: 24px;
+        color: #E0E6ED; /* 银色 */
+        opacity: 0.9;
+        display: block;
+    }
+}
+
+/* 表单容器样式 */
+.form-container {
+    width: 100%;
+    max-width: 650px;
+    background: rgba(19, 47, 76, 0.4); /* 深邃宇宙蓝半透明 */
+    border-radius: 16px;
+    padding: 30px 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 163, 180, 0.2);
+    position: relative;
+
+    /* 添加底部渐变线 */
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        width: 80%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(0, 163, 180, 0.5), transparent);
+        border-radius: 2px;
+    }
+}
+
+/* 表单项样式 */
+.form-item {
+    margin-bottom: 24px;
+
+    .form-label {
+        display: block;
+        font-size: 28px;
+        color: #E6C35C; /* 金色 */
+        margin-bottom: 12px;
+    }
+
+    .form-input {
+        width: 100%;
+        height: 80px;
+        background: rgba(10, 25, 41, 0.5);
+        border: 1px solid rgba(0, 163, 180, 0.3);
+        border-radius: 8px;
+        color: #E0E6ED; /* 银色 */
+        font-size: 28px;
+        padding: 0 16px;
+        box-sizing: border-box;
+
+        &:focus {
+            border-color: rgba(0, 163, 180, 0.8);
+            box-shadow: 0 0 8px rgba(0, 163, 180, 0.4);
+        }
+
+        &::placeholder {
+            color: rgba(224, 230, 237, 0.5);
+        }
+    }
+
+    .form-picker {
+        width: 100%;
+    }
+
+    .picker-value {
+        width: 100%;
+        height: 80px;
+        background: rgba(10, 25, 41, 0.5);
+        border: 1px solid rgba(0, 163, 180, 0.3);
+        border-radius: 8px;
+        color: #E0E6ED; /* 银色 */
+        font-size: 28px;
+        padding: 0 16px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* 单选按钮组样式 */
+.radio-group {
+    display: flex;
+    gap: 30px;
+
+    .radio-option {
+        display: flex;
+        align-items: center;
+        padding: 10px 16px;
+        background: rgba(10, 25, 41, 0.5);
+        border: 1px solid rgba(0, 163, 180, 0.3);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+
+        &.selected {
+            background: rgba(0, 163, 180, 0.2);
+            border-color: rgba(0, 163, 180, 0.6);
+            box-shadow: 0 0 8px rgba(0, 163, 180, 0.3);
+        }
+
+        .radio-label {
+            margin-left: 8px;
+            font-size: 28px;
+            color: #E0E6ED; /* 银色 */
+        }
+    }
+}
+
+/* 已保存信息样式 */
+.saved-profiles {
+    margin: 30px 0;
+    width: 100%;
+
+    .saved-profiles-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        background: rgba(0, 163, 180, 0.15);
+        border-radius: 8px;
+        border: 1px solid rgba(0, 163, 180, 0.3);
+        margin-bottom: 16px;
+
+        .toggle-text {
+            font-size: 28px;
+            color: #00A3B4; /* 青蓝色 */
+        }
+
+        .toggle-icon {
+            font-size: 28px;
+            color: #00A3B4; /* 青蓝色 */
+        }
+    }
+
+    .profiles-list {
+        background: rgba(10, 25, 41, 0.5);
+        border-radius: 8px;
+        border: 1px solid rgba(0, 163, 180, 0.2);
+        overflow: hidden;
+
+        .profile-item {
+            padding: 16px;
+            border-bottom: 1px solid rgba(0, 163, 180, 0.2);
+            transition: all 0.3s ease;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            &:active {
+                background: rgba(0, 163, 180, 0.1);
+            }
+
+            .profile-name {
+                font-size: 28px;
+                color: #E6C35C; /* 金色 */
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            .profile-info {
+                font-size: 24px;
+                color: #E0E6ED; /* 银色 */
+                opacity: 0.8;
+                display: block;
+            }
+        }
+    }
+}
+
+/* 提交按钮样式 */
+.submit-button {
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(90deg, #00A3B4, #20B2AA); /* 青蓝/绿松石渐变 */
+    border-radius: 45px;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border: none;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: all 0.5s ease;
+    }
+
+    &:active {
+        transform: scale(0.98);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+
+        &::before {
+            left: 100%;
+        }
+    }
 }

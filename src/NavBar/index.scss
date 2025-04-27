@@ -6,7 +6,14 @@
   right: 0;
   z-index: 1000;
   background-color: transparent;
-  
+  padding-top: calc(var(--safe-area-inset-top) + 15px);
+  margin-bottom: 10px;
+
+  /* 为灵动岛和刘海屏添加额外的顶部安全区域 */
+  &.has-notch {
+    padding-top: calc(var(--safe-area-inset-top) + 25px);
+  }
+
   .back-button {
     position: absolute;
     left: 20px;
@@ -15,12 +22,12 @@
     justify-content: center;
     border-radius: 50%;
     background-color: rgba(44, 26, 71, 0.7); // 深邃紫色带透明度
-    
+
     &:active {
       background-color: rgba(44, 26, 71, 0.9);
       transform: scale(0.95);
     }
-    
+
     .back-arrow {
       width: 30%;
       height: 30%;

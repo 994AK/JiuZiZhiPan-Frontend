@@ -1,16 +1,31 @@
 .mbti-page {
-
-    color: #d4af37;
+    color: #E6C35C; /* 金色 */
     width: 100%;
     height: 100vh;
-    background: #1a0f29;
+    background: linear-gradient(135deg, #0A1929, #132F4C) fixed; /* 深空蓝黑/深邃宇宙蓝渐变 */
     background-size: cover;
+    padding-top: var(--safe-area-inset-top);
+    padding-bottom: var(--safe-area-inset-bottom);
+    box-sizing: border-box;
   }
-   
+
   .mbti-content {
     width: 100%;
     height: 100%;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* 添加一个渐变边框的容器 */
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100px; /* 调整位置以适应导航栏 */
+        left: 5%;
+        width: 90%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 163, 180, 0.3), transparent); /* 青蓝色透明渐变线 */
+    }
   }
-  
-  
+

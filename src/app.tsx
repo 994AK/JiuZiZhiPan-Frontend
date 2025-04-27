@@ -8,6 +8,7 @@ import {
 import { FC } from "react";
 import { Provider } from "mobx-react";
 import store from "./store";
+import { SafeAreaProvider } from "./contexts/SafeAreaContext";
 
 const App: FC = ({ children }) => {
   useLaunch(() => {
@@ -20,7 +21,9 @@ const App: FC = ({ children }) => {
 
   return (
     <Provider store={store}>
-      {children}
+      <SafeAreaProvider>
+        {children}
+      </SafeAreaProvider>
     </Provider>
   );
 }

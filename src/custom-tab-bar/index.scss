@@ -2,38 +2,82 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #2C1A47; /* Purple background */
-  height: 100px; /* Adjusted height for better fit */
-
+  background-color: #0D2B45; /* 深海军蓝背景 */
+  height: 110px; /* 适合的高度 */
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.3);
   box-sizing: content-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-bottom: var(--safe-area-inset-bottom);
 
-  padding-bottom: constant(safe-area-inset-bottom); ///*兼容 IOS<11.2*/
-  padding-bottom: env(safe-area-inset-bottom); ///*兼容 IOS>11.2*/
+  /* 添加顶部边框渐变 */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 163, 180, 0.3), transparent);
+  }
 }
 
 .tab-item {
   flex: 1;
   text-align: center;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  &:active {
+    opacity: 0.8;
+  }
 }
 
 .tab-item.selected {
-  // darker purple for selected tab
-  background-color: #3B2A5A;
+  background-color: #1A4469; /* 亮一点的深海军蓝 */
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(90deg, #00A3B4, #20B2AA); /* 青蓝/绿松石渐变 */
+    border-radius: 3px 3px 0 0;
+    animation: glow 1.5s infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 5px rgba(0, 163, 180, 0.5);
+    }
+    to {
+      box-shadow: 0 0 10px rgba(0, 163, 180, 0.8);
+    }
+  }
 }
 
 .tab-text {
-  color: #ffffff; /* White text */
-  font-size: 20px;
-
-  margin-top: 10px;
+  color: #E0E6ED; /* 银色文字 */
+  font-size: 24px;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+  opacity: 0.7;
 }
 
 .tab-text.selected-text {
   font-weight: bold;
+  color: #00A3B4; /* 选中时使用青蓝色 */
+  opacity: 1;
+  transform: scale(1.05);
 }

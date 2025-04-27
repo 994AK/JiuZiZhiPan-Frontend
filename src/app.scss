@@ -1,19 +1,28 @@
 /* 九紫智盘 - Global Styles */
 
 /* Color Variables */
-$deep-purple: #2C1A47;
-$deep-black: #121212;
-$dark-gold: #C0A080;
+// 主要背景色 - 深空蓝黑/深邃宇宙蓝
+$deep-space-blue: #0A1929;
+$deep-space-blue-light: #132F4C;
 
-$light-purple: #8A6DB3;
-$gray-purple: #635270;
-$bronze: #8E6F47;
-$silver-gray: #E0E0E8;
+// 底部Tab - 深海军蓝/靛蓝
+$navy-blue: #0D2B45;
+$navy-blue-light: #1A4469;
 
-$info-blue: #3A89C9;
-$success-green: #4CAF78;
-$warning-yellow: #F9A825;
-$error-red: #D32F2F;
+// 背景渐变 - 青蓝/绿松石渐变
+$teal-blue: #00A3B4;
+$turquoise: #20B2AA;
+
+// 辅助色
+$gold: #E6C35C;
+$silver: #E0E6ED;
+$accent-blue: #4FC3F7;
+
+// 功能色
+$info-blue: #42A5F5;
+$success-green: #66BB6A;
+$warning-yellow: #FFCA28;
+$error-red: #EF5350;
 
 /* Global Reset */
 page {
@@ -27,5 +36,48 @@ page {
 
 view, text, button, input, textarea, image, scroll-view {
   box-sizing: border-box;
+}
+
+/* 安全区域变量 */
+:root {
+  --safe-area-inset-top: 0px;
+  --safe-area-inset-bottom: 0px;
+  --safe-area-inset-left: 0px;
+  --safe-area-inset-right: 0px;
+}
+
+/* 兼容不同设备的安全区域 */
+:root {
+  --safe-area-inset-top: constant(safe-area-inset-top);
+  --safe-area-inset-bottom: constant(safe-area-inset-bottom);
+  --safe-area-inset-left: constant(safe-area-inset-left);
+  --safe-area-inset-right: constant(safe-area-inset-right);
+}
+
+@supports (padding-top: env(safe-area-inset-top)) {
+  :root {
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    --safe-area-inset-left: env(safe-area-inset-left);
+    --safe-area-inset-right: env(safe-area-inset-right);
+  }
+}
+
+/* 页面通用样式 */
+.page-container {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+/* iOS刘海屏/灵动岛适配 */
+.ios-notch-padding {
+  padding-top: calc(var(--safe-area-inset-top) + 20px) !important;
+}
+
+.ios-content-padding {
+  padding-top: 20px !important;
 }
 
