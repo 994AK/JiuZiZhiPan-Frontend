@@ -22,16 +22,18 @@ import { useEffect, useState } from 'react'
 const coreFeatures = [
   {
     id: 'bazi',
-    name: '四柱八字',
-    description: '探索命运密码，解读人生轨迹',
-    url: '/pages/bazi/index'
+    title: '八字命盘',
+    description: '查询八字命盘',
+    icon: <StarOutlined color='#D4AF37' size={40} />,
+    path: '/pages/bazi/chart/index'
   },
   {
     id: 'mbti',
-    name: 'MBTI人格测试',
-    description: '了解自我性格，发现内在潜能',
-    url: '/pages/mbti/index'
-  }
+    title: 'MBTI性格测试',
+    description: '免费专业MBTI测试',
+    icon: <DiamondOutlined color='#D4AF37' size={40} />,
+    path: '/pages/mbti/index'
+  },
 ]
 
 // 即将开放功能模块数据
@@ -39,37 +41,37 @@ const upcomingFeatures = [
   {
     id: 'ziwei',
     name: '紫微斗数',
-    icon: <StarOutlined color='#E0E6ED' size={40} />,
+    icon: <StarOutlined color='#D4AF37' size={40} />,
     isAvailable: false
   },
   {
     id: 'liuyao',
     name: '六爻纳甲',
-    icon: <DiamondOutlined color='#E0E6ED' size={40} />,
+    icon: <DiamondOutlined color='#D4AF37' size={40} />,
     isAvailable: false
   },
   {
     id: 'meihua',
     name: '梅花易数',
-    icon: <FlowerOutlined color='#E0E6ED' size={40} />,
+    icon: <FlowerOutlined color='#D4AF37' size={40} />,
     isAvailable: false
   },
   {
     id: 'qimen',
     name: '奇门遁甲',
-    icon: <LocationOutlined color='#E0E6ED' size={40} />,
+    icon: <LocationOutlined color='#D4AF37' size={40} />,
     isAvailable: false
   },
   {
     id: 'fire',
     name: '火珠林',
-    icon: <FireOutlined color='#E0E6ED' size={40} />,
+    icon: <FireOutlined color='#D4AF37' size={40} />,
     isAvailable: false
   },
   {
     id: 'qigong',
     name: '命理气功',
-    icon: <StarOutlined color='#E0E6ED' size={40} />,
+    icon: <StarOutlined color='#D4AF37' size={40} />,
     isAvailable: false
   }
 ]
@@ -221,11 +223,11 @@ export default function Index() {
               <View
                 key={feature.id}
                 className='core-feature-card'
-                onClick={() => handleCoreFeatureClick(feature.url)}
+                onClick={() => handleCoreFeatureClick(feature.path)}
               >
                 <View className='feature-decoration'></View>
                 <View className='feature-content'>
-                  <Text className='feature-name'>{feature.name}</Text>
+                  <Text className='feature-name'>{feature.title}</Text>
                   <Text className='feature-description'>{feature.description}</Text>
                 </View>
                 <View className='feature-button'>
@@ -258,8 +260,8 @@ export default function Index() {
           <Text className='section-title'>用户评价</Text>
           <Swiper
             className='testimonials-swiper'
-            indicatorColor='#13304D'
-            indicatorActiveColor='#00A3B4'
+            indicatorColor='#382B63'
+            indicatorActiveColor='#9966CC'
             circular
             autoplay
             interval={5000}
@@ -270,19 +272,19 @@ export default function Index() {
                 <View className='testimonial-card'>
                   <View className='testimonial-header'>
                     <View className='testimonial-avatar'>
-                      <UserOutlined color='#E6C35C' size={40} />
+                      <UserOutlined color='#D4AF37' size={40} />
                     </View>
                     <View className='testimonial-user'>
                       <Text className='testimonial-name'>{testimonial.name}</Text>
                       <View className='testimonial-rating'>
                         {Array(testimonial.rating).fill(0).map((_, i) => (
-                          <LikeOutlined key={i} color='#E6C35C' size={24} />
+                          <LikeOutlined key={i} color='#D4AF37' size={24} />
                         ))}
                       </View>
                     </View>
                   </View>
                   <View className='testimonial-content'>
-                    <CommentOutlined color='rgba(0, 163, 180, 0.3)' size={32} className='quote-icon' />
+                    <CommentOutlined color='rgba(153, 102, 204, 0.4)' size={32} className='quote-icon' />
                     <Text className='testimonial-text'>{testimonial.content}</Text>
                   </View>
                 </View>

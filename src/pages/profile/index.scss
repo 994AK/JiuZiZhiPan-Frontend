@@ -1,33 +1,32 @@
 .profile-page {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, #0A1929, #132F4C) fixed; /* 深空蓝黑/深邃宇宙蓝渐变 */
+  background: linear-gradient(135deg, #1E0A29, #2D1445) fixed; /* 深紫色/神秘黑紫渐变 */
   background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #E6C35C; /* 金色 */
+  color: #D4AF37; /* 紫金色 */
   padding-top: var(--safe-area-inset-top);
   padding-bottom: var(--safe-area-inset-bottom);
   box-sizing: border-box;
 
   .page-title {
     font-size: 40px;
-    color: #E6C35C; /* 金色 */
-    margin: 40px 0 30px;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    color: #D4AF37; /* 紫金色 */
+    padding: 20px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     position: relative;
 
     &::after {
       content: '';
       position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
+      bottom: 10px;
+      left: 20px;
+      width: 120px;
       height: 2px;
-      background: linear-gradient(90deg, #00A3B4, #20B2AA); /* 青蓝/绿松石渐变 */
-      border-radius: 2px;
+      background: linear-gradient(90deg, #9966CC, transparent); /* 紫水晶色渐变底线 */
     }
   }
 
@@ -45,4 +44,17 @@
       text-align: center;
     }
   }
+}
+
+.user-info {
+  // ... existing code ...
+}
+
+.user-name {
+  // ... existing code ...
+}
+
+.user-email {
+  color: #E0E0EE; /* 略带紫色的银 */
+  // ... existing code ...
 }

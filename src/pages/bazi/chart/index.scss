@@ -1,14 +1,17 @@
 .bazi-chart-page {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, #0A1929, #132F4C) fixed; /* 深空蓝黑/深邃宇宙蓝渐变 */
+  background: linear-gradient(135deg, #1E0A29, #2D1445) fixed; /* 深紫色/神秘黑紫渐变 */
   background-size: cover;
-  color: #E6C35C; /* 金色 */
+  color: #D4AF37; /* 紫金色 */
   padding-top: var(--safe-area-inset-top);
   padding-bottom: var(--safe-area-inset-bottom);
   box-sizing: border-box;
   position: relative;
-  
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
   /* 添加星空背景效果 */
   &::before {
     content: '';
@@ -17,7 +20,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
       radial-gradient(1px 1px at 25% 15%, rgba(255, 255, 255, 0.6), transparent),
       radial-gradient(1px 1px at 50% 40%, rgba(255, 255, 255, 0.5), transparent),
       radial-gradient(1.5px 1.5px at 75% 25%, rgba(255, 255, 255, 0.4), transparent),
@@ -49,34 +52,37 @@
 /* 通用部分标题样式 */
 .section-title {
   font-size: 32px;
-  color: #E6C35C; /* 金色 */
-  padding-left: 12px;
-  border-left: 4px solid #00A3B4; /* 青蓝色边框 */
+  color: #D4AF37; /* 紫金色 */
+  padding-left: 15px;
+  border-left: 4px solid #9966CC; /* 紫水晶色边框 */
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  
+  letter-spacing: 1px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
   &::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, #00A3B4, transparent); /* 青蓝色渐变线 */
+    background: linear-gradient(90deg, #9966CC, transparent); /* 紫水晶色渐变线 */
     margin-left: 15px;
+    box-shadow: 0 0 8px rgba(153, 102, 204, 0.3);
   }
 }
 
 /* 用户信息区域样式 */
 .user-info-section {
-  background: rgba(19, 47, 76, 0.4);
+  background: rgba(45, 20, 69, 0.5);
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 30px;
-  border: 1px solid rgba(0, 163, 180, 0.2);
+  border: 1px solid rgba(153, 102, 204, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -84,27 +90,27 @@
     left: 10%;
     width: 80%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(0, 163, 180, 0.5), transparent);
+    background: linear-gradient(90deg, transparent, rgba(186, 104, 200, 0.6), transparent);
   }
-  
+
   .user-name {
     font-size: 36px;
     font-weight: bold;
-    color: #E6C35C;
+    color: #D4AF37;
     margin-bottom: 10px;
   }
-  
+
   .user-birth {
     font-size: 28px;
-    color: #E0E6ED;
+    color: #E0E0EE;
     margin-bottom: 8px;
   }
-  
+
   .user-gender {
     font-size: 28px;
-    color: #E0E6ED;
+    color: #E0E0EE;
     padding: 4px 16px;
-    background: rgba(0, 163, 180, 0.2);
+    background: rgba(153, 102, 204, 0.25);
     border-radius: 20px;
     margin-top: 8px;
   }
@@ -126,16 +132,16 @@
   flex-direction: column;
   align-items: center;
   width: 22%;
-  
+
   .pillar-label {
     font-size: 28px;
-    color: #E0E6ED;
+    color: #E0E0EE;
     margin-bottom: 10px;
   }
-  
+
   .pillar-content {
-    background: rgba(19, 47, 76, 0.6);
-    border: 1px solid rgba(0, 163, 180, 0.3);
+    background: rgba(45, 20, 69, 0.6);
+    border: 1px solid rgba(153, 102, 204, 0.3);
     border-radius: 12px;
     width: 100%;
     padding: 16px 0;
@@ -143,7 +149,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    
+
     &::after {
       content: '';
       position: absolute;
@@ -151,45 +157,45 @@
       left: 10%;
       width: 80%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0, 163, 180, 0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(186, 104, 200, 0.4), transparent);
     }
   }
-  
+
   .heavenly-stem {
     font-size: 40px;
-    color: #E6C35C;
+    color: #D4AF37;
     font-weight: bold;
     margin-bottom: 16px;
   }
-  
+
   .earthly-branch {
     font-size: 40px;
-    color: #E6C35C;
+    color: #D4AF37;
     font-weight: bold;
     margin-bottom: 16px;
   }
-  
+
   .hidden-stems {
     display: flex;
     justify-content: center;
     gap: 8px;
-    
+
     .hidden-stem {
       font-size: 24px;
       color: rgba(224, 230, 237, 0.8);
     }
   }
-  
+
   &.day-pillar {
     .pillar-content {
-      background: rgba(0, 163, 180, 0.2);
-      border-color: rgba(0, 163, 180, 0.6);
-      box-shadow: 0 0 15px rgba(0, 163, 180, 0.3);
+      background: rgba(153, 102, 204, 0.25);
+      border-color: rgba(186, 104, 200, 0.6);
+      box-shadow: 0 0 15px rgba(153, 102, 204, 0.3);
     }
-    
+
     .heavenly-stem, .earthly-branch {
       color: #fff;
-      text-shadow: 0 0 8px rgba(0, 163, 180, 0.8);
+      text-shadow: 0 0 8px rgba(153, 102, 204, 0.8);
     }
   }
 }
@@ -197,10 +203,10 @@
 /* 五行分析区域样式 */
 .five-elements-section {
   margin-bottom: 30px;
-  background: rgba(19, 47, 76, 0.4);
+  background: rgba(45, 20, 69, 0.5);
   border-radius: 16px;
   padding: 20px;
-  border: 1px solid rgba(0, 163, 180, 0.2);
+  border: 1px solid rgba(153, 102, 204, 0.25);
 }
 
 .five-elements-chart {
@@ -212,14 +218,14 @@
   display: flex;
   align-items: center;
   margin-bottom: 16px;
-  
+
   .element-name {
     width: 60px;
     font-size: 28px;
     color: #E0E6ED;
     text-align: center;
   }
-  
+
   .bar-container {
     flex: 1;
     height: 24px;
@@ -228,13 +234,13 @@
     overflow: hidden;
     margin: 0 16px;
   }
-  
+
   .bar-value {
     height: 100%;
     border-radius: 12px;
     transition: width 0.5s ease;
   }
-  
+
   .element-count {
     width: 40px;
     font-size: 28px;
@@ -248,20 +254,20 @@
   background: rgba(10, 25, 41, 0.5);
   border-radius: 12px;
   border: 1px solid rgba(0, 163, 180, 0.2);
-  
+
   .strength-label {
     font-size: 28px;
-    color: #E6C35C;
+    color: #D4AF37;
     margin-right: 10px;
   }
-  
+
   .strength-value {
     font-size: 28px;
     color: #00A3B4;
     font-weight: bold;
     margin-right: 16px;
   }
-  
+
   .strength-description {
     font-size: 26px;
     color: #E0E6ED;
@@ -278,10 +284,10 @@
 .analysis-tabs {
   display: flex;
   margin-bottom: 20px;
-  background: rgba(19, 47, 76, 0.4);
+  background: rgba(45, 20, 69, 0.5);
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(0, 163, 180, 0.2);
+  border: 1px solid rgba(153, 102, 204, 0.25);
 }
 
 .tab-item {
@@ -289,26 +295,26 @@
   text-align: center;
   padding: 16px 0;
   transition: all 0.3s ease;
-  
+
   .tab-text {
     font-size: 28px;
-    color: #E0E6ED;
+    color: #E0E0EE;
   }
-  
+
   &.active {
-    background: rgba(0, 163, 180, 0.2);
-    
+    background: rgba(153, 102, 204, 0.25);
+
     .tab-text {
-      color: #00A3B4;
+      color: #D4AF37;
       font-weight: bold;
     }
-    
+
     &::after {
       content: '';
       display: block;
       width: 40%;
       height: 3px;
-      background: linear-gradient(90deg, transparent, #00A3B4, transparent);
+      background: linear-gradient(90deg, transparent, #9966CC, transparent);
       margin: 8px auto 0;
       border-radius: 2px;
     }
@@ -316,46 +322,46 @@
 }
 
 .analysis-content {
-  background: rgba(19, 47, 76, 0.4);
+  background: rgba(45, 20, 69, 0.5);
   border-radius: 16px;
   padding: 20px;
-  border: 1px solid rgba(0, 163, 180, 0.2);
-  
+  border: 1px solid rgba(153, 102, 204, 0.25);
+
   .analysis-text {
     font-size: 28px;
-    color: #E0E6ED;
+    color: #E0E0EE;
     line-height: 1.6;
   }
-  
+
   .details-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
     padding: 10px 0;
-    border-top: 1px solid rgba(0, 163, 180, 0.2);
-    
+    border-top: 1px solid rgba(153, 102, 204, 0.25);
+
     .toggle-text {
       font-size: 26px;
-      color: #00A3B4;
+      color: #9966CC;
       margin-right: 8px;
     }
-    
+
     .toggle-icon {
       font-size: 26px;
-      color: #00A3B4;
+      color: #9966CC;
     }
   }
-  
+
   .analysis-details {
     margin-top: 16px;
     padding: 16px;
-    background: rgba(10, 25, 41, 0.5);
+    background: rgba(30, 10, 41, 0.5);
     border-radius: 12px;
-    
+
     .details-text {
       font-size: 26px;
-      color: #E0E6ED;
+      color: #E0E0EE;
       line-height: 1.6;
     }
   }
@@ -367,11 +373,11 @@
   justify-content: space-between;
   margin-bottom: 40px;
   gap: 20px;
-  
+
   .function-button {
     flex: 1;
     height: 90px;
-    background: linear-gradient(90deg, #00A3B4, #20B2AA); /* 青蓝/绿松石渐变 */
+    background: linear-gradient(90deg, #9966CC, #8A5DC7); /* 紫水晶/幽紫渐变 */
     border-radius: 45px;
     color: #fff;
     font-size: 28px;
@@ -381,10 +387,62 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     &:active {
       transform: scale(0.98);
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     }
   }
+}
+
+.chart-title {
+  font-size: 34px;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #D4AF37; /* 紫金色 */
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 12px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 35%;
+    width: 30%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #9966CC, transparent);
+  }
+}
+
+.element {
+  color: #D4AF37;
+}
+
+.stem-branch {
+  color: #E0E0EE;
+}
+
+.time-item {
+  color: #E0E0EE;
+}
+
+.destiny-number {
+  color: #E0E0EE;
+}
+
+.strength-label {
+  color: #D4AF37;
+}
+
+.lucky-element {
+  color: #D4AF37;
+}
+
+.unlucky-element {
+  color: #9966CC;
+}
+
+.neutral-element {
+  color: #E0E0EE;
 }
